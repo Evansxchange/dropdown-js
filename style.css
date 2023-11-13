@@ -1,0 +1,203 @@
+*{
+ margin: 0;
+ padding: 0;
+ box-sizing: border-box;
+}
+
+body{
+ background-color: gray;
+}
+
+nav{
+ width: 4rem;
+ height: 3.5rem ;
+ padding-top: 1rem;
+ border-radius: 0 0 5px 0;
+ animation: drop1 2s ;
+ overflow: hidden;
+}
+
+@keyframes drop1{
+ from{
+  width: 4rem;
+  height: fit-content;
+  transition: ease 500ms;
+  background-color: rgb(83, 83, 87);
+ }
+
+ 100%{
+  width: 4rem;
+  transition: ease 500ms;
+ }
+}
+
+nav.active{
+ width: fit-content;
+ height: fit-content;
+ animation: drop 3s;
+ transition: ease 500ms;
+ background-color: rgb(83, 83, 87);
+}
+
+@keyframes drop{
+ 0%{
+  width: 14%;
+  height: 0%;
+  transition: ease 3s;
+ }
+ 50%{
+  height: 100%;
+ }
+ 100%{
+  width: fit-content;
+  height: fit-content;
+ }
+}
+
+
+
+.toggle{
+ position: relative;
+ width: 2em;
+ height: 2rem;
+ display: flex;
+ flex-direction: column;
+left: .5rem;
+ border: 2px solid goldenrod;
+ border-radius: 5px;
+ cursor: pointer;
+ animation: toggle1 2s 1s forwards;
+ transition: ease 1s;
+}
+
+@keyframes toggle1 {
+
+ to{
+  left: .5rem;
+  transition: ease 250ms;
+ }
+}
+
+.toggle.active{
+ left: 1.5rem;
+ animation: toggle 1s;
+ transition: ease 500ms;
+}
+
+.toggle span{
+ background-color: goldenrod;
+ height: 2.5px;
+ width: 1.4rem;
+ margin: .2rem;
+ transition: ease 500ms;
+}
+
+.toggle .span_1.active{
+ position: absolute;
+ top: .2rem;
+ transform: rotate(49deg);
+ margin-top: 9px;
+ transition: ease 500ms; 
+}
+
+.toggle .span_1{
+ position: absolute;
+ top: .2rem;
+ transform: rotate(0deg);
+ margin-top: 9px;
+ transition: ease 500ms;
+}
+
+.span_2{
+ display: block ;
+ animation: span2 800ms;
+}
+
+.span_2.active{
+ display: none;
+ transition: ease 1s;
+}
+
+@keyframes span2 {
+ 0%{
+  display: block;
+  opacity: .5;
+ }
+50%{
+ display: none;
+}
+ 100%{
+  display: block;
+  opacity: 1;
+ }
+}
+
+.span_3{
+ top: 1.2rem;
+ position: absolute;
+ transform: rotate(0deg);
+ transition: ease 500ms;
+}
+
+.span_3.active{
+ top: .6rem;
+ position: absolute;
+ transform: rotate(-49deg);
+ transition: ease 500ms;
+}
+
+@keyframes toggle {
+
+ 0%{
+  left: .5rem;
+  transition: ease 250ms;
+ }
+ 100%{
+  left: 1.5rem;
+ }
+}
+
+nav ul li{
+ list-style: none;
+ color: rgb(217, 165, 32, .7);
+ padding: 1rem 1.5rem;    
+ align-items: center;
+ display: flex;
+ cursor: pointer;
+}
+
+nav ul li:hover{
+ color: rgba(218, 165, 32, 0.783); 
+}
+
+li span{
+ margin-right: 2rem;
+ color: gold;
+}
+
+@media (width>50rem) {
+ nav{
+  display: flex;
+  width: 100vw !important;
+  padding: 0;
+ }
+
+ .toggle{
+  display: none;
+ }
+
+ ul{
+  width: 100%;
+  display: flex;
+  justify-content: space-around;
+ }
+
+ li{
+  font-size: clamp(16px, 1vw, 26px);
+ }
+
+ li span{
+  margin-right: .5rem;
+  color: gold;
+ }
+}
